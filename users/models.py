@@ -9,6 +9,6 @@ class User(AbstractUser):
     birthdate = models.DateField(null=True)
     is_employee = models.BooleanField(default=False)
 
-    def save(self) -> None:
+    def save(self, *args, **kwargs) -> None:
         self.is_superuser = self.is_employee
-        return super().save()
+        return super().save(*args, **kwargs)
