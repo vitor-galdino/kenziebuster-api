@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from .models import Rating_Choices, Movie
+from .models import RatingChoices, Movie
 
 
 class MovieSerializer(serializers.Serializer):
@@ -8,7 +8,7 @@ class MovieSerializer(serializers.Serializer):
     title = serializers.CharField(max_length=127)
     duration = serializers.CharField(max_length=10, required=False, allow_null=True)
     rating = serializers.ChoiceField(
-        choices=Rating_Choices.choices, required=False, default=Rating_Choices.G_OPTION
+        choices=RatingChoices.choices, required=False, default=RatingChoices.G_OPTION
     )
     synopsis = serializers.CharField(required=False, allow_null=True)
     added_by = serializers.EmailField(read_only=True, source='user.email')
