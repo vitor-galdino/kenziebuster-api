@@ -6,5 +6,5 @@ class IsAccountOwnerOrAdmin(permissions.BasePermission):
         return (
             request.user.is_superuser
             and request.user.is_authenticated
-            or obj.user == request.user
+            or obj == request.user
         )
